@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Welcome to Symfony !</title>
+       
+    </head>
+    <body>
+        <p> Bienvenue sur la page index  {{ name }}, tu as {{ age }} ans</p>
+        Je veux aller à la page <a href="{{ path ('annonces_listall') }}"> des annonces</a>
+        Je veux aller à la page <a href="{{ path ('annonces_detail', {'id': 100}) }}"> Détail</a>
+    </body>
+</html>
