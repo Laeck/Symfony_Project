@@ -1,13 +1,30 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Welcome to Symfony !</title>
-       
-    </head>
-    <body>
-        <p> Bienvenue sur la page index  {{ name }}, tu as {{ age }} ans</p>
-        Je veux aller à la page <a href="{{ path ('annonces_listall') }}"> des annonces</a>
-        Je veux aller à la page <a href="{{ path ('annonces_detail', {'id': 100}) }}"> Détail</a>
-    </body>
-</html>
+{# Pas besoin de mettre du HTML car il hérite du HTML du modèle mere layout #}
+
+{% extends 'layout.html.twig' %}
+
+{% block title %} Index toto {% endblock %}
+
+{% block body %} 
+
+        <p> {{ dump(mytab, age, name) }} </p>
+        <p> {% for valeur in mytab %} 
+                {{ valeur }} <br />
+            {% endfor %} {# Obligatoire, pour définir que la boucle est terminée #}
+        </p>
+
+        <p> Bienvenue sur la page index {{ name|upper }}, 
+            {% if age > 25 %}
+            tu as {{ age }} ans !
+            {% else %}
+            tu es trop jeune !
+            {% endif %}
+            </p>
+            {% set mavariable = 'val2' %} {# Création d'une variable #}
+
+        Je veux aller à la page <a href="{{ path ('annonces_listall') }}"> des annonces</a><br />
+        Je veux aller à la page <a href="{{ path ('annonces_detail', {'id': 100}) }}"> Détail</a><br />
+        <img src="{{ asset('images/smashbros.jpg') }}" alt="" />
+
+{% endblock %}
+
+

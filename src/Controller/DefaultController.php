@@ -17,8 +17,9 @@ class DefaultController
     // Index : est une action du controller
     public function index(Environment $twig)
     {
+        $tab = array('val1', 'val2', 'val3');
         // Le fait de mettre un tableau en paramètre, la vue va pouvoir récupérer les paramètres
-        $content = $twig->render('Default/index.html.twig', ['name' => 'Mika', 'age' => '29']);
+        $content = $twig->render('Default/index.html.twig', ['name' => 'Mika', 'age' => 29, 'mytab' => $tab]);
 
         return new Response($content);
     }
